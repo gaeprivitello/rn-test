@@ -4,6 +4,7 @@ import { List, Avatar } from 'react-native-paper';
 
 import colors from "../constants/colors";
 import { getUserDetails } from "../api/usersApi";
+import { Loader } from "../components/Loader";
 
 export const UserDetailsScreen = ({ route }) => {
 
@@ -24,7 +25,7 @@ export const UserDetailsScreen = ({ route }) => {
             description={user.location}
             left={() => <Avatar.Image size={50} source={{ uri: user.avatar_url }} />}
           />
-          : <Text>Loading...</Text>
+          : <Loader/>
       }
     </View>
   );
