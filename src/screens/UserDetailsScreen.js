@@ -19,13 +19,16 @@ export const UserDetailsScreen = ({ route }) => {
     <View style={styles.container}>
       {
         user ?
-          <List.Item
-            title={user.name}
-            titleStyle={{fontWeight : 'bold'}}
-            description={user.location}
-            left={() => <Avatar.Image size={50} source={{ uri: user.avatar_url }} />}
-          />
-          : <Loader/>
+          <>
+            <List.Item
+              title={user.name}
+              titleStyle={{ fontWeight: 'bold' }}
+              description={user.location}
+              left={() => <Avatar.Image size={50} source={{ uri: user.avatar_url }} />}
+            />
+            <View style={styles.separator} />
+          </>
+          : <Loader />
       }
     </View>
   );
@@ -36,5 +39,9 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.white,
     padding: 10,
+  },
+  separator: {
+    height: 1,
+    backgroundColor: colors.border,
   }
 });

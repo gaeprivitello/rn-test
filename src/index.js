@@ -7,7 +7,7 @@ import { Main } from './navigation/Main';
 export default function App() {
   return (
     <>
-      <StatusBar style="auto" />
+      <StatusBar style="light" />
       <NavigationContainer>
         <Main/>
       </NavigationContainer>

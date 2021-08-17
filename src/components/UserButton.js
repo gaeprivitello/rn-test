@@ -4,7 +4,7 @@ import { Button } from "react-native-paper";
 
 export const UserButton = ({ username, onPress }) => {
     return (
-        <Button key={username} style={styles.button} icon="account" mode="contained" onPress={() => onPress(username)}>
+        <Button style={styles.button} icon="account" mode="contained" onPress={() => onPress(username)}>
             {username}
         </Button>
     );
