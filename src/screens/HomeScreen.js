@@ -24,14 +24,15 @@ export const HomeScreen = ({ navigation }) => {
     <View style={styles.container}>
       {
         !isLoading ?
-          <View style={{ marginHorizontal: 25 }}>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }}  >
-              <Text style={{ fontSize: 28, fontWeight: 'bold', marginVertical: 5 }} >{`Top ${users.length} GitHub Users`}</Text>
-              <Text style={{ fontSize: 18, marginBottom: 15 }} >Tap the usarname to see more information</Text>
+          <View style={styles.headerRoot}>
+            <View style={styles.headerContainer}  >
+              <Text style={styles.headerTitle} >{`Top ${users.length} GitHub Users`}</Text>
+              <Text style={styles.headerSubtitle}>Tap the usarname to see more information</Text>
             </View>
-            <View style={{ flexDirection: 'row', flexWrap: 'wrap' }} >
-              {users.map((user) => {
+            <View style={styles.usersContainer} >
+              {users.map((user, index) => {
                 return <UserButton
+                  key={`${user}-${index}`}
                   username={user}
                   onPress={(username) => navigation.push('UserDetails', { username })}
                 />
@@ -51,4 +52,24 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
     paddingVertical: 20,
   },
+  headerRoot: {
+    marginHorizontal: 25
+  },
+  headerContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  headerTitle: {
+    fontSize: 28,
+    fontWeight: 'bold',
+    marginVertical: 5
+  },
+  headerSubtitle: {
+    fontSize: 18,
+    marginBottom: 15
+  },
+  usersContainer: {
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  }
 });
